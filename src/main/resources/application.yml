@@ -1,0 +1,14 @@
+mybatis:
+  configuration:
+    map-underscore-to-camel-case:true
+  mapper-locations: classpath:/mapper/**/*.xml
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/baseballgame
+    username: admin
+    password: mkg4568!
+  sql:
+    init:
+      schema-locations: classpath:sql/room.sql
+      data-locations: classpath:sql/data.sql
