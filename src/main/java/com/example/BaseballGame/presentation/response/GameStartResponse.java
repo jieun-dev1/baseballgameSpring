@@ -1,4 +1,6 @@
-package com.example.BaseballGame.shared.dto;
+package com.example.BaseballGame.presentation.response;
+
+import com.example.BaseballGame.presentation.request.GameStartRequest;
 
 public class GameStartResponse {
     private Long roomId;

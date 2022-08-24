@@ -1,4 +1,4 @@
-package com.example.BaseballGame.shared.dto;
+package com.example.BaseballGame.presentation.request;
 
 public class GameStartRequest {
 
