@@ -1,11 +1,10 @@
-package com.example.BaseballGame.persistence;
+package com.example.BaseballGame.infrastructure.persistence;
 
 
 import com.example.BaseballGame.domain.Game;
-import com.example.BaseballGame.domain.GameRepository;
+import com.example.BaseballGame.domain.repository.GameRepository;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
 
 
 public class InMemoryGameRepository implements GameRepository {

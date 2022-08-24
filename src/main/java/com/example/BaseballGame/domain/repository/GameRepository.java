@@ -1,8 +1,7 @@
-package com.example.BaseballGame.domain;
+package com.example.BaseballGame.domain.repository;
 
-import java.util.Optional;
+import com.example.BaseballGame.domain.Game;
 
-//저장소.
 public interface GameRepository {
 
     Game save(Game game);
