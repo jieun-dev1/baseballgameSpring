@@ -107,9 +107,6 @@ public class Game {
             this.status = Status.CLOSED;
         }
 
-        //서비스에 Score 객체를 반환.
-        //Room 의 remainingCount등과 함께 반환.
-
         return new GameScoreResponse((this.status == Status.CORRECT) ,this.remainingCount, score);
     }
 }

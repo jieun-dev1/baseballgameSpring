@@ -11,15 +11,12 @@ Error
  */
 
 
-import com.example.BaseballGame.domain.History;
 import com.example.BaseballGame.domain.exception.GameClosedException;
 import com.example.BaseballGame.domain.exception.InvalidGameException;
-import com.example.BaseballGame.presentation.request.CurrentCount;
+import com.example.BaseballGame.presentation.response.CurrentCount;
 import com.example.BaseballGame.presentation.response.GameScoreResponse;
 import com.example.BaseballGame.presentation.response.GameStartResponse;
 import com.example.BaseballGame.presentation.response.Histories;
-import java.util.List;
-import org.apache.logging.log4j.message.Message;
 
 public class ApiResponse<T> {
 
@@ -33,7 +30,6 @@ public class ApiResponse<T> {
         this.error = error;
     }
 
-    //체크.
 
     public boolean isSuccess() {
         return success;

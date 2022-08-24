@@ -5,6 +5,7 @@ public class Score {
     private int ball;
     private int out;
 
+
     public Score(int strike, int ball, int out) {
         this.strike = strike;
         this.ball = ball;
