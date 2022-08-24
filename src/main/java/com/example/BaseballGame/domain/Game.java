@@ -4,8 +4,8 @@ package com.example.BaseballGame.domain;
 Game 이 생성 될 떄, 총 참여 기회가 매개변수로 주어진다고 가정
  */
 
-import com.example.BaseballGame.shared.dto.GameScoreRequest;
-import com.example.BaseballGame.shared.dto.GameScoreResponse;
+import com.example.BaseballGame.presentation.request.GameScoreRequest;
+import com.example.BaseballGame.presentation.response.GameScoreResponse;
 import com.example.BaseballGame.shared.dto.Score;
 
 public class Game {
@@ -27,9 +27,6 @@ public class Game {
         this.remainingCount = remainingCount;
     }
 
-    public Game() {
-
-    }
 
     //Getter
     public Long getGameId() {
@@ -39,45 +36,63 @@ public class Game {
         return status;
     }
 
+    public int getRemainingCount() {
+        return remainingCount;
+    }
+
+    public int getAnsweredCount() {
+        return answeredCount;
+    }
+
+    public String getCorrectAnswer() {
+        return correctAnswer;
+    }
+
     //메서드
     public void changeGameCount() {
         this.remainingCount--;
         this.answeredCount++;
     }
 
+
+
+
     public int findStrikes(char[] userAnswerArray, char[] correctArray) {
-        int strike = 0;
+        int count = 0;
         for (int i = 0; i < userAnswerArray.length; i++) {
             if (userAnswerArray[i] == correctArray[i]) {
-                strike++;
+                count++;
             }
         }
-        return strike;
+        return count;
     }
 
     public int findBalls(char[] userAnswerArray, char[] correctArray) {
-        int ball = 0;
+        int count = 0;
 
         for (int i = 0; i < userAnswerArray.length; i++) {
             for (int j = 0; j < correctArray.length; j++) {
-                if (userAnswerArray[i] == correctArray[i] && (i != j)) {
-                    ball++;
+                if ((userAnswerArray[i] == correctArray[j]) && (i != j)) {
+                    count++;
                     break;
                 }
             }
         }
-        return ball;
+        return count;
     }
 
     public GameScoreResponse scoreBalls(GameScoreRequest dto) {
 
-        String userAnswer = dto.getUserAnswerRequest().getAnswer();
+        String userAnswer = dto.getAnswer();
         char[] userAnswerArray = userAnswer.toCharArray();
         char[] correctArray = this.correctAnswer.toCharArray();
 
+        //Score로 묶음. (데이터 유실 가능성 막기 위함)
         int strike = findStrikes(userAnswerArray, correctArray);
         int ball = findBalls(userAnswerArray, correctArray);
         int out = 3 - strike - ball;
+
+        Score score = new Score(strike, ball, out);
 
         /*
         게임 상태 변경 필요
@@ -95,6 +110,6 @@ public class Game {
         //서비스에 Score 객체를 반환.
         //Room 의 remainingCount등과 함께 반환.
 
-        return new GameScoreResponse((this.status == Status.CORRECT) ,this.remainingCount, strike, ball, out);
+        return new GameScoreResponse((this.status == Status.CORRECT) ,this.remainingCount, score);
     }
 }
