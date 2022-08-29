@@ -55,10 +55,7 @@ public class GameManager {
 
     public GameScoreResponse runGame(GameScoreRequest request) {
         Game game = repository.findById(request.getRoomId());
-        //게임이 존재하는지 확인
-        if (game == null) {
-            throw new InvalidGameException("존재하지 않는 게임 입니다");
-        }
+
         /*
         게임이 살아있는지 확인하고, 그렇다면 채점해서 점수를 넣는다.
          */
@@ -80,6 +77,7 @@ public class GameManager {
     }
 
     public Histories findHistories(Long gameId) {
+        repository.findById(gameId);
         List<History> historyList = historyRepository.findAll(gameId);
         Histories histories = new Histories(historyList);
         return histories;

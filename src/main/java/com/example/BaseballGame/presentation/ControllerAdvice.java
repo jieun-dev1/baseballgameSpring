@@ -16,14 +16,12 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class ControllerAdvice {
 
     @ExceptionHandler(GameClosedException.class)
-    public ApiResponse<?> closedGameHandler(GameClosedException e){
+    public ApiResponse<Error> closedGameHandler(GameClosedException e){
         return ApiResponse.fail(ApiResponse.Error.fromResult(e));
     }
 
     @ExceptionHandler(InvalidGameException.class)
-    public ApiResponse<?> exceptionHandler(InvalidGameException e){
+    public ApiResponse<Error> exceptionHandler(InvalidGameException e){
         return ApiResponse.fail(ApiResponse.Error.fromResult(e));
     }
-
-
 }

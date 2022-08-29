@@ -10,7 +10,6 @@ Error
 -내부 클래스에서 외부 클래스의 멤버 변수에 쉽게 접근 가능
  */
 
-
 import com.example.BaseballGame.domain.exception.GameClosedException;
 import com.example.BaseballGame.domain.exception.InvalidGameException;
 import com.example.BaseballGame.presentation.response.CurrentCount;
@@ -18,7 +17,7 @@ import com.example.BaseballGame.presentation.response.GameScoreResponse;
 import com.example.BaseballGame.presentation.response.GameStartResponse;
 import com.example.BaseballGame.presentation.response.Histories;
 
-public class ApiResponse<T> {
+    public class ApiResponse<T>  {
 
     private boolean success;
     private T data;
@@ -29,7 +28,6 @@ public class ApiResponse<T> {
         this.data = data;
         this.error = error;
     }
-
 
     public boolean isSuccess() {
         return success;
@@ -63,11 +61,9 @@ public class ApiResponse<T> {
         return new ApiResponse(false, null, error);
     }
 
-
     /*
     Error를 public static으로 만든 이유 - 외부에서 참조하기 위함.
      */
-
     public static class Error {
 
         private Code code;
@@ -80,6 +76,14 @@ public class ApiResponse<T> {
 
         public enum Code {
             CLOSED_GAME, NOT_EXIST;
+        }
+
+        public Code getCode() {
+            return code;
+        }
+
+        public String getMessage() {
+            return message;
         }
 
         public static Error fromResult(GameClosedException e) {
