@@ -1,4 +1,4 @@
-package com.example.BaseballGame.presentation.response;
+package com.example.BaseballGame.application;
 
 public class CurrentCount {
     private int remainingCount;

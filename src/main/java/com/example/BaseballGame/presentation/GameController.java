@@ -5,14 +5,15 @@ API 요청만 받는다.
  */
 
 import com.example.BaseballGame.application.GameManager;
-import com.example.BaseballGame.presentation.response.CurrentCount;
+import com.example.BaseballGame.application.CurrentCount;
 import com.example.BaseballGame.presentation.response.Histories;
 import com.example.BaseballGame.shared.dto.ApiResponse;
 import com.example.BaseballGame.presentation.response.GameStartResponse;
 import com.example.BaseballGame.presentation.request.UserAnswerRequest;
 import com.example.BaseballGame.presentation.request.GameScoreRequest;
 import com.example.BaseballGame.presentation.response.GameScoreResponse;
-import com.example.BaseballGame.presentation.request.GameStartRequest;
+import com.example.BaseballGame.application.GameStartRequest;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;

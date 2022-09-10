@@ -12,7 +12,7 @@ Error
 
 import com.example.BaseballGame.domain.exception.GameClosedException;
 import com.example.BaseballGame.domain.exception.InvalidGameException;
-import com.example.BaseballGame.presentation.response.CurrentCount;
+import com.example.BaseballGame.application.CurrentCount;
 import com.example.BaseballGame.presentation.response.GameScoreResponse;
 import com.example.BaseballGame.presentation.response.GameStartResponse;
 import com.example.BaseballGame.presentation.response.Histories;

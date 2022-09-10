@@ -6,4 +6,10 @@ public class UserAnswerRequest {
     public String getAnswer() {
         return answer;
     }
+    public UserAnswerRequest() {
+    }
+
+    public UserAnswerRequest(String answer) {
+        this.answer = answer;
+    }
 }

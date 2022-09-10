@@ -8,11 +8,8 @@ import com.example.BaseballGame.domain.GameIdGenerator;
 import com.example.BaseballGame.domain.History;
 import com.example.BaseballGame.domain.repository.HistoryRepository;
 import com.example.BaseballGame.domain.exception.GameClosedException;
-import com.example.BaseballGame.domain.exception.InvalidGameException;
-import com.example.BaseballGame.presentation.response.CurrentCount;
 import com.example.BaseballGame.presentation.request.GameScoreRequest;
 import com.example.BaseballGame.presentation.response.GameScoreResponse;
-import com.example.BaseballGame.presentation.request.GameStartRequest;
 import com.example.BaseballGame.presentation.response.Histories;
 import java.util.List;
 
@@ -55,7 +52,6 @@ public class GameManager {
 
     public GameScoreResponse runGame(GameScoreRequest request) {
         Game game = repository.findById(request.getRoomId());
-
         /*
         게임이 살아있는지 확인하고, 그렇다면 채점해서 점수를 넣는다.
          */

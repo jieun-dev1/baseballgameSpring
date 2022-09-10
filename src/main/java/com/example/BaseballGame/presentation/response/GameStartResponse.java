@@ -1,6 +1,6 @@
 package com.example.BaseballGame.presentation.response;
 
-import com.example.BaseballGame.presentation.request.GameStartRequest;
+import com.example.BaseballGame.application.GameStartRequest;
 
 public class GameStartResponse {
     private Long roomId;

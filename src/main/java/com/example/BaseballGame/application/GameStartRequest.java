@@ -1,4 +1,4 @@
-package com.example.BaseballGame.presentation.request;
+package com.example.BaseballGame.application;
 
 public class GameStartRequest {
 
